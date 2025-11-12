@@ -1,6 +1,6 @@
-package domain.repository;
+package com.example.demo.domain.repository;
 
-import domain.entity.Arena;
+import com.example.demo.domain.entity.Arena;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

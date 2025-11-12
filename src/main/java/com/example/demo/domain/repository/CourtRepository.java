@@ -1,6 +1,6 @@
-package domain.repository;
+package com.example.demo.domain.repository;
 
-import domain.entity.Court;
+import com.example.demo.domain.entity.Court;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
