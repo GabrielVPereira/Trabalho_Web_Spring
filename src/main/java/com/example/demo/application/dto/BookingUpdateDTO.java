@@ -1,7 +1,12 @@
 package com.example.demo.application.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record BookingUpdateDTO(
-        @NotBlank String status // "CONFIRMED" | "CANCELED"
-) {}
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BookingUpdateDTO {
+    private String status;
+}

@@ -3,14 +3,13 @@ package com.example.demo.application.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingCreateDTO {
-    private Long userId;
-    private Long courtId;
-    private Instant startAt;
-    private Instant endAt;
+public class CourtDTO {
+    private Long id;
+    private String name;
+    private String sport; 
+    private Long arenaId; 
 }

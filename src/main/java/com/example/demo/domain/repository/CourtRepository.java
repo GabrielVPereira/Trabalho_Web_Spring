@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CourtRepository extends JpaRepository<Court, Long> {
     // filtrar por arena: SELECT * FROM courts WHERE arena_id = :arenaId
-    List<Court> findByArena_Id(Long arenaId);
+    List<Court> findByArenaId(Long arenaId);
 
     // busca por esporte (ex.: "FUTSAL")
     List<Court> findBySportIgnoreCase(String sport);

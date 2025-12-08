@@ -3,14 +3,11 @@ package com.example.demo.application.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingCreateDTO {
-    private Long userId;
-    private Long courtId;
-    private Instant startAt;
-    private Instant endAt;
+public class TokenDTO {
+    private String token;
+    private String type = "Bearer"; // Opcional: útil para o frontend saber o tipo
 }
