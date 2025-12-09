@@ -53,15 +53,15 @@ public class BookingService {
 
     @Transactional
     public BookingDTO create(BookingCreateDTO dto) {
-        // CORREÇÃO: Usando .getUserId() ao invés de .userId()
+        
         User user = users.findById(dto.getUserId())
                 .orElseThrow(() -> new NotFoundException("User not found"));
         
-        // CORREÇÃO: Usando .getCourtId() ao invés de .courtId()
+        
         Court court = courts.findById(dto.getCourtId())
                 .orElseThrow(() -> new NotFoundException("Court not found"));
 
-        // CORREÇÃO: Usando .getStartAt() e .getEndAt()
+        
         boolean conflict = bookings.existsOverlap(court.getId(), dto.getStartAt(), dto.getEndAt());
         if (conflict) {
             throw new BusinessException("Horário indisponível para esta quadra.");
@@ -70,8 +70,8 @@ public class BookingService {
         Booking b = new Booking();
         b.setUser(user);
         b.setCourt(court);
-        b.setStartAt(dto.getStartAt()); // CORREÇÃO
-        b.setEndAt(dto.getEndAt());     // CORREÇÃO
+        b.setStartAt(dto.getStartAt()); 
+        b.setEndAt(dto.getEndAt());     
         b.setStatus("PENDING");
 
         return mapper.toDTO(bookings.save(b));
@@ -82,7 +82,7 @@ public class BookingService {
         Booking b = bookings.findById(id)
                 .orElseThrow(() -> new NotFoundException("Booking not found"));
         
-        // CORREÇÃO: Usando .getStatus() ao invés de .status()
+        
         if (dto.getStatus() != null) {
             b.setStatus(dto.getStatus());
         }
