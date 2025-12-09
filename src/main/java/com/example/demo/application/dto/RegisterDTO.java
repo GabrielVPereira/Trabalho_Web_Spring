@@ -11,5 +11,5 @@ public class RegisterDTO {
     private String name;
     private String email;
     private String password;
-    private String role; // Opcional, o service pode definir o padrão
+    private String role; 
 }
