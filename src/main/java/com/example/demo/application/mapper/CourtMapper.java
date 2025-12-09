@@ -15,11 +15,10 @@ public class CourtMapper {
             entity.getId(),
             entity.getName(),
             entity.getSport(),
-            // Verifica se tem arena para evitar erro, embora seja obrigatório no banco
+
             entity.getArena() != null ? entity.getArena().getId() : null
         );
     }
     
-    // Obs: Não faremos toEntity aqui porque precisamos buscar a Arena no banco
-    // Faremos a montagem do objeto 'Court' diretamente no Service, igual fizemos no Booking.
+
 }
