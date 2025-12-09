@@ -36,7 +36,7 @@ public class ArenaService {
     @Transactional
     public ArenaDTO create(ArenaDTO dto) {
         Arena entity = arenaMapper.toEntity(dto);
-        // Garante que o ID é nulo para criar novo
+       
         entity.setId(null); 
         return arenaMapper.toDTO(arenaRepository.save(entity));
     }
