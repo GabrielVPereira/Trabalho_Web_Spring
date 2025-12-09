@@ -23,16 +23,16 @@ public class UserDetailsServiceCustom implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Busca nossa entidade no banco
+        
         User usuario = userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
-        // Cria a autoridade (ROLE) baseada na string do banco
+        
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(usuario.getRole());
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(authority);
 
-        // Retorna o objeto User do SPRING SECURITY (Adapter), igual ao do professor
+        
         return new org.springframework.security.core.userdetails.User(
                 usuario.getEmail(),
                 usuario.getPasswordHash(),
