@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CourtMapper {
 
-    // Converter Entidade -> DTO (Para devolver na API)
+    
     public CourtDTO toDTO(Court entity) {
         if (entity == null) return null;
         
