@@ -26,14 +26,14 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        // Liberar rotas de Auth
+                        
                         .requestMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
-                        // Exemplo de regra do professor (adaptada para seu contexto)
+                        
                         .requestMatchers(HttpMethod.GET, "/api/users/**").hasRole("ADMIN") 
                         .anyRequest().authenticated()
                 )
-                .userDetailsService(userDetailsService) // Professor usa isso aqui
-                .httpBasic(AbstractHttpConfigurer::disable) // Professor desabilita explicitamente
+                .userDetailsService(userDetailsService) 
+                .httpBasic(AbstractHttpConfigurer::disable) 
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
