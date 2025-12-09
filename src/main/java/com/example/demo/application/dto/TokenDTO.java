@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TokenDTO {
     private String token;
-    private String type = "Bearer"; // Opcional: útil para o frontend saber o tipo
+    private String type = "Bearer"; 
 }
