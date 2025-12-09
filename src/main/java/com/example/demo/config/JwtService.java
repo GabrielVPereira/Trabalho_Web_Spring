@@ -33,7 +33,6 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        // Incluir roles no token (igual ao professor)
         claims.put("roles", userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .toList());
@@ -51,12 +50,9 @@ public class JwtService {
                 .compact();
     }
 
-    // Método auxiliar para manter compatibilidade com seu AuthController se necessário
-    // mas o ideal é usar generateToken(UserDetails)
+    
     public String generateToken(com.example.demo.domain.entity.User user) {
-         // Gambiarra técnica: converter sua entity para UserDetails apenas para gerar o token
-         // se você chamar direto do AuthService.
-         // O ideal seria o AuthService carregar o UserDetails, mas vamos manter simples:
+         
          return Jwts.builder()
                 .setSubject(user.getEmail())
                 .setIssuer(issuer)
